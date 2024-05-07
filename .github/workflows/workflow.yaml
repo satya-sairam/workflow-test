@@ -1,0 +1,22 @@
+name: Echo SSH Username
+
+on: [push]
+
+jobs:
+  echo_username_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Read SSH Username
+      id: read_username
+      run: |
+        pwd
+        username=$(cat ./input.yaml | grep "username" | cut -d ":" -f 2 | tr -d '[:space:]')
+        echo "::set-output name=username::$username"
+
+    - name: Echo SSH Username
+      run: |
+        echo "SSH Username: ${{ steps.read_username.outputs.username }}"
