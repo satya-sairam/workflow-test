@@ -14,7 +14,7 @@ jobs:
       id: read_username
       run: |
         pwd
-        username=$(cat /home/runner/work/workflow-test/input.yaml | grep "username" | cut -d ":" -f 2 | tr -d '[:space:]')
+        username=$(cat /home/runner/work/workflow-test/inputs.yaml | grep "username" | cut -d ":" -f 2 | tr -d '[:space:]')
         echo "::set-output name=username::$username"
 
     - name: Echo SSH Username
