@@ -1,0 +1,14 @@
+defaultHostCredentials:
+  sshUserName: sairamka
+
+
+hosts:
+- host: "10.227.215.121"
+  labels:
+  - "role": "orch"
+- host: "10.227.215.122"
+  labels:
+  - "role": "controlplane"
+- host: "10.227.215.123"
+  labels:
+  - "role": "compute"  
