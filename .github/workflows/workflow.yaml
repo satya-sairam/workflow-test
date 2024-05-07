@@ -1,22 +1,22 @@
-name: Echo SSH Username
+name: Replace SSH Username
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
 
 jobs:
-  echo_username_job:
+  replace_ssh_username:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Read SSH Username
-      id: read_username
-      run: |
-        pwd
-        username=$(cat /home/runner/work/workflow-test/inputs.yaml | grep "username" | cut -d ":" -f 2 | tr -d '[:space:]')
-        echo "::set-output name=username::$username"
-
-    - name: Echo SSH Username
-      run: |
-        echo "SSH Username: ${{ steps.read_username.outputs.username }}"
+      - name: Extract and replace SSH Username
+        run: |
+          ls
+          pwd
+        #   ssh_username=$(grep 'ssh_username' inputs.yaml | awk -F ': ' '{print $2}')
+        #   sed -i "s/sshUserName: .*/sshUserName: $ssh_username/" new.yaml
+        #   cat new.yaml  # Echo the replaced YAML content
