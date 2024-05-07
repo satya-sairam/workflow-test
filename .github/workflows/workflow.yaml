@@ -20,3 +20,8 @@ jobs:
           ssh_username=$(grep 'ssh_username' inputs.yaml | awk -F ': ' '{print $2}')
           replaced_yaml=$(sed "s/sshUserName: .*/sshUserName: $ssh_username/" new-output.yaml)
           echo "$replaced_yaml"  # Echo the replaced YAML content stored in the variable
+
+
+      - name: Run Shell Script
+        run: bash test.sh
+          
