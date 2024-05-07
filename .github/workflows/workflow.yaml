@@ -15,8 +15,8 @@ jobs:
 
       - name: Extract and replace SSH Username
         run: |
-          ls
-          pwd
-        #   ssh_username=$(grep 'ssh_username' inputs.yaml | awk -F ': ' '{print $2}')
-        #   sed -i "s/sshUserName: .*/sshUserName: $ssh_username/" new.yaml
-        #   cat new.yaml  # Echo the replaced YAML content
+          pwd 
+          ls 
+          ssh_username=$(grep 'ssh_username' inputs.yaml | awk -F ': ' '{print $2}')
+          replaced_yaml=$(sed "s/sshUserName: .*/sshUserName: $ssh_username/" new-output.yaml)
+          echo "$replaced_yaml"  # Echo the replaced YAML content stored in the variable
