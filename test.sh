@@ -13,5 +13,6 @@ sed -i "s/role: controlplane/role: controlplane\n    - host: \"$host2\"/" newout
 sed -i "s/role: compute/role: compute\n    - host: \"$host3\"/" newoutput.yaml
 
 echo "Replacements done!"
+cat newoutput.yaml
 
 
