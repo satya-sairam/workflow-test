@@ -18,5 +18,9 @@ jobs:
         run: |
           env | grep ^GIT
 
+      - name: Print Git Environment Variables
+        run: |
+          bash test.sh   
+
         
         
