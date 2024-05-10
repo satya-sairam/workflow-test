@@ -1,27 +1,20 @@
-name: Replace SSH Username
+name: Print Hello World
 
 on:
   push:
-    branches:
-      - main  # Adjust the branch name as needed
+    branches-ignore:
+      - main
+      - dev
 
 jobs:
-  replace_ssh_username:
+  print_hello_world:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Extract and replace SSH Username
-        run: |
-          pwd 
-          ls 
-          ssh_username=$(grep 'ssh_username' inputs.yaml | awk -F ': ' '{print $2}')
-          replaced_yaml=$(sed "s/sshUserName: .*/sshUserName: $ssh_username/" newoutput.yaml)
-          echo "$replaced_yaml"  # Echo the replaced YAML content stored in the variable
-
-
-      - name: Run Shell Script
-        run: bash test.sh
-          
+      - name: Print Hello World
+        run: echo "Hello, world!"
+        
+        
