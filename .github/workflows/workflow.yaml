@@ -1,4 +1,4 @@
-name: Print Branch Name
+name: Print Git Environment Variables
 
 on:
   push:
@@ -7,15 +7,16 @@ on:
       - dev
 
 jobs:
-  print_branch_name:
+  print_git_env_variables:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print Branch Name
-        run: echo "The workflow is running on branch $GITHUB_REF"
+      - name: Print Git Environment Variables
+        run: |
+          env | grep ^GIT
 
         
         
