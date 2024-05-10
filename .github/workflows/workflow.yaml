@@ -1,4 +1,4 @@
-name: Print Hello World
+name: Print Branch Name
 
 on:
   push:
@@ -7,14 +7,15 @@ on:
       - dev
 
 jobs:
-  print_hello_world:
+  print_branch_name:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print Hello World
-        run: echo "Hello, world!"
+      - name: Print Branch Name
+        run: echo "The workflow is running on branch $GITHUB_REF"
+
         
         
